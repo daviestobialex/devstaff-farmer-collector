@@ -83,18 +83,20 @@ The application provides a set of RESTful APIs for managing farms, recording pla
 ### API Endpoints
 
 - **Farm Management**:
-    - `POST /api/farms`: Create a new farm.
-    - `GET /api/farms/{id}`: Retrieve details of a specific farm.
-    - `PUT /api/farms/{id}`: Update a farm's details.
-    - `DELETE /api/farms/{id}`: Delete a farm.
+    - `POST /api/management/farms`: Create a new farm.
+    - `GET /api/management/farms/{id}`: Retrieve details of a specific farm.
+    - `GET /api/management/farms`: gets a paginated farm's details and you can search by farm name.
+    - `PUT /api/management/farm/{farmId}`: Update a farm's details.
+    - `DELETE /api/management/farms/{id}`: Delete a farm.
 
 - **Plantation Management**:
-    - `POST /api/farms/{farmId}/plantations`: Record plantation data for a farm.
-    - `GET /api/farms/{farmId}/plantations`: Retrieve plantation data for a farm.
+    - `POST /api/management/plantation`: Record plantation data for a farm.
+    - `GET /api/management/plantation/{Id}`: Retrieve plantation data by id.
+    - `DELETE /api/management/plantation/{Id}`: delete a plantation data by id. 
 
 - **Harvest Management**:
-    - `POST /api/farms/{farmId}/harvests`: Record harvest data for a farm.
-    - `GET /api/farms/{farmId}/harvests`: Retrieve harvest data for a farm.
+    - `POST /api/harvest/{farmId}/harvests`: Record harvest data for a farm.
+    - `GET /api/harvest/{farmId}/harvests`: Retrieve harvest data for a farm.
 
 - **Reporting**:
     - `GET /api/reports/seasonal`: Generate a report comparing expected vs. actual yields by farm and crop type.
