@@ -127,6 +127,7 @@ The application provides a set of RESTful APIs for managing farms, recording pla
 
 4. **Access the Application**:
     The application will be available at `http://localhost:8080`.
+    The application swagger documentation will be available at `http://localhost:8080/api/swagger-ui.html`.
 
 ---
 
