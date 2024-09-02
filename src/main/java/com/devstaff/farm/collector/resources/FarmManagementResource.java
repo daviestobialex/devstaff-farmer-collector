@@ -20,12 +20,10 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
-import static org.springframework.context.support.BeanDefinitionDslKt.beans;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -49,7 +47,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author daviestobialex
  */
-@Tag(name = "Farm Management Controller")
+@Tag(name = "Farm Management Controller", description = "CRUD for farm management")
 @Slf4j
 @RestController
 @RequestMapping("/management/")

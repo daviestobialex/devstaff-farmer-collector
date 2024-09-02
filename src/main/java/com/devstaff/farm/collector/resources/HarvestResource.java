@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author daviestobialex
  */
-@Tag(name = "Harvest Controller")
+@Tag(name = "Harvest Controller", description = "CRUD for harvest operations")
 @Slf4j
 @RestController
 @RequestMapping("/harvest/")

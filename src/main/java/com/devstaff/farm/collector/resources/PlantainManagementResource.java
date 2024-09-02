@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author daviestobialex
  */
-@Tag(name = "Plantation Management Controller")
+@Tag(name = "Plantation Management Controller", description = "CRUD for plantation management")
 @Slf4j
 @RestController
 @RequestMapping("/management/")
