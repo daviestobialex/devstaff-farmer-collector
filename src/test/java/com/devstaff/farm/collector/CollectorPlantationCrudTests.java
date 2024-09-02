@@ -7,10 +7,16 @@ package com.devstaff.farm.collector;
 import com.devstaff.farm.collector.entities.Farm;
 import com.devstaff.farm.collector.entities.Plantation;
 import com.devstaff.farm.collector.resources.PlantainManagementResource;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.util.Assert;
 
 /**
  *
@@ -23,23 +29,17 @@ public class CollectorPlantationCrudTests {
     @Autowired
     PlantainManagementResource resource;
 
-    @BeforeEach
-    public void createFarmForTest() {
-        
-        Farm farm;
-        long count = resource.getDataService().getFarmRepository().count();
-        if (count == 0) {
-            farm = resource.getDataService().getFarmRepository()
-                    .save(new Farm("Davies-Farm"));
-        }
-        
-        count = resource.getDataService().getPlantationRepository().count();
-        
-        if (count == 0) {
-            Plantation plantation = new Plantation();
-            resource.getDataService().getPlantationRepository()
-                    .save(plantation);
-        }
+    @Test
+    void getPlantations() {
+
+        EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
+            Plantation plantations = resource.getPlantationById(1L);
+            Assert.isNull(plantations, "items should be 0 in h2 database");
+        });
+        String expectedMessage = "plantation with id 1 can not be found";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
 }

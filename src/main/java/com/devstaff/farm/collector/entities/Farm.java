@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Set;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -34,6 +35,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Table(name = "collector_farm")
 @SuppressWarnings("PersistenceUnitPresent")
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class Farm extends FarmDTO {
 
